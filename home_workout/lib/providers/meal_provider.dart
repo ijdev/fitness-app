@@ -85,18 +85,6 @@ class MealProvider with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  _getToken() async {
-    var localStorage = await SharedPreferences.getInstance();
-    String _token = localStorage.getString('token');
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      "Authorization": "Bearer $_token"
-    };
-
-    return headers;
-  }
-
   Future<void> fetchAndSetMyMeals() async {
     String url = 'http://10.0.2.2/api/meals';
 
